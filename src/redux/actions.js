@@ -12,3 +12,5 @@ export const addContactError = createAction("addContact/error");
 export const deleteContactRequest = createAction("deleteContact/request");
 export const deleteContactSuccess = createAction("deleteContact/success");
 export const deleteContactError = createAction("deleteContact/error");
+
+export const changeFilter = createAction("changeFilter");

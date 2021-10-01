@@ -6,9 +6,9 @@ function fits(name, filter) {
   return name.toLowerCase().includes(filter.toLowerCase());
 }
 
-function ContactList({ /*contacts,*/ filter, onDelete }) {
+function ContactList({ /*contacts, filter,*/ onDelete }) {
   const contacts = useSelector((state) => state.contacts);
-  //const filter = useSelector((state) => state.filter);
+  const filter = useSelector((state) => state.filter);
 
   return (
     <ul>

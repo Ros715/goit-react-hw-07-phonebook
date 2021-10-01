@@ -13,13 +13,13 @@ const contacts = createReducer([], {
     state.filter((contact) => contact.id !== action.payload),
 });
 
-//const filter = createReducer("", {
-//  [changeFilter]: (state, action) => action.payload,
-//});
+const filter = createReducer("", {
+  [contactsActions.changeFilter]: (state, action) => action.payload,
+});
 
 const rootReducer = combineReducers({
   contacts,
-  //filter,
+  filter,
 });
 
 export default rootReducer;
