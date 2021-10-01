@@ -1,12 +1,7 @@
 //import styles from "./ContactList.module.css";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getFilteredContacts } from "../../redux/contacts-selectors";
 
 function ContactList({ contacts, onDelete }) {
-  //const contacts = useSelector((state) => state.contacts);
-  //const filter = useSelector((state) => state.filter);
-
   return (
     <ul>
       {contacts.map((contact) => {
@@ -33,8 +28,4 @@ ContactList.propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  contacts: getFilteredContacts(state),
-});
-
-export default connect(mapStateToProps, null)(ContactList);
+export default ContactList;

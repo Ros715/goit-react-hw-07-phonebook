@@ -4,13 +4,13 @@ import Filter from "./components/Filter/Filter.js";
 import ContactList from "./components/ContactList/ContactList.js";
 import "./App.css";
 import { v4 as uuidv4 } from "uuid";
-import { useSelector, useDispatch, connect } from "react-redux";
+import { /*useSelector,*/ useDispatch, connect } from "react-redux";
 import * as contactsActions from "./redux/actions";
 import * as contactsOperations from "./redux/operations";
-import { getContacts } from "./redux/contacts-selectors";
+import { getContacts, getFilteredContacts } from "./redux/contacts-selectors";
 
-function App() {
-  const contacts = useSelector(getContacts);
+function App({ contacts, filteredContacts }) {
+  //const contacts = useSelector(getContacts);
   //const filter = useSelector((state) => state.filter);
   //const [filter, setFilter] = useState(() => { return ""; });
   const dispatch = useDispatch();
@@ -45,9 +45,14 @@ function App() {
 
       <h2>Contacts</h2>
       <Filter onChange={onChangeFilter} />
-      <ContactList onDelete={onDeleteContact} />
+      <ContactList contacts={filteredContacts} onDelete={onDeleteContact} />
     </div>
   );
 }
 
-export default connect()(App);
+const mapStateToProps = (state) => ({
+  contacts: getContacts(state),
+  filteredContacts: getFilteredContacts(state),
+});
+
+export default connect(mapStateToProps, null)(App);
