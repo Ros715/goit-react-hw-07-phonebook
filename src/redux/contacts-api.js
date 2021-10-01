@@ -1,3 +1,9 @@
+/*
+npm install axios
+npm install -g json-server
+json-server --watch db.json
+*/
+
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:3000";
